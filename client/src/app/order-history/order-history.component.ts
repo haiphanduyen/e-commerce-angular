@@ -33,7 +33,7 @@ export class OrderHistoryComponent implements OnInit {
   orders: any[] = [];
   error = '';
   constructor(
-    private _api: ApiService,
+    private api: ApiService,
     private _auth: AuthService,
     private _product: ProductService
   ) {
@@ -41,7 +41,7 @@ export class OrderHistoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._api.getTypeRequest(`orders/?userId=${this.user.user_id}`).subscribe(
+    this.api.getTypeRequest(`orders/?userId=${this.user.user_id}`).subscribe(
       (res: any) => {
         console.log(res);
         res.data.forEach((item) => {

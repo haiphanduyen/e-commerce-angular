@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   errorMessage = '';
   loading = false;
   constructor(
-    private _api: ApiService,
+    private api: ApiService,
     private _auth: AuthService,
     private _router: Router
   ) {}

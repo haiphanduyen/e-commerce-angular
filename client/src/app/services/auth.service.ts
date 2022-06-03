@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ApiService } from './api.service';
 import { TokenStorageService } from './token-storage.service';
 
@@ -11,7 +11,7 @@ export class AuthService {
   private userSubject: BehaviorSubject<any>;
   public user: Observable<any>;
 
-  constructor(private _api: ApiService, private _token: TokenStorageService) {
+  constructor(private api: ApiService, private _token: TokenStorageService) {
     this.userSubject = new BehaviorSubject<any>(this._token.getUser());
     this.user = this.userSubject.asObservable();
   }
@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   login(credentials: any): Observable<any> {
-    return this._api
+    return this.api
       .postTypeRequest('auth/login', {
         email: credentials.email,
         password: credentials.password,
@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   register(user: any): Observable<any> {
-    return this._api.postTypeRequest('auth/register', {
+    return this.api.postTypeRequest('auth/register', {
       fullName: user.fullName,
       email: user.email,
       password: user.password,

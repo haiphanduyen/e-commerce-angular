@@ -9,10 +9,8 @@
       nzSize="large"
     >
       <i
-        nz-icon
         nzType="menu"
-        [ngStyle]="{ 'font-size': '1.25rem', 'padding-top': '6px' }"
-      ></i>
+      > Menu </i>
     </button>
   </div>
   <div class="header-container__middle">
@@ -124,7 +122,7 @@
   </div>
 </header>
 
-<!-- <div class="nav-container" *ngIf="!isMobile">
+<div class="nav-container" *ngIf="!isMobile">
   <nav>
     <ul>
       <li routerLink="/">Home</li>
@@ -137,7 +135,7 @@
       <li routerLink="/order-history">Order History</li>
     </ul>
   </nav>
-</div> -->
+</div>
 
 <div [className]="isMenuOpen ? 'side-menu show' : 'side-menu'">
   <i nz-icon nzType="close" nzTheme="outline" (click)="toggleMenu()"></i>
